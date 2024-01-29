@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{article}
-\usepackage{amsmath} 
+\usepackage{amsmath}
+\usepackage{amscd}
 \usepackage{mathtext}
 \usepackage{amsfonts}
 \usepackage[english,russian]{babel}
@@ -562,6 +563,68 @@ F \overset{h}{\rightarrow} F \overset{\rho}{\rightarrow} E \rightarrow 0.
 $$
 
 Заметим, что $E \cong \coker(h)$. Теперь определим $f_\alpha := \alpha - h$.
+
+\newcommand{\Hom}{\text{Hom}}
+
+\paragraph{Теорема 6.3}
+{\itshape Пусть $E \in Mod_n(A)$ полный степени $d$. Тогда следующие свойства эквивалентны:
+	\begin{enumerate}
+		\item $E$ не является скрученным с циклическими подмодулями ранга $d$ ($i = 1, ..., k$);
+		\item $h$ \hl{диагонализируемый (diagonalisable)} с нормированными \hl{eigenvalue-polynomials of degree d (i = 1, ... k)}; % Прямо-таки Mindestlohndokumentationspflichtenverordnung из https://www.recht.bund.de/bgbl/1/2023/372/VO;
+		\item $f_{\alpha} \in \Hom(F, MF)$ \hl{диагонализируемый (diagonalisable)}\hl{with eigenvalue-polynomials in MA of de-
+		gree < d ( i = 1 , . . . , k ).}
+	\end{enumerate}
+
+}
+
+\newcommand{\Aut}{\text{Aut}}
+
+\paragraph{Доказательство}
+(1) $\Rightarrow$ (2): В лемме 3.9 и в доказательстве теоремы 5.5 мы использовали факт того, что $x^d \cdot \hatei{i} = \beta_i e_i, ~ \deg(\beta_i) < d \Rightarrow h(b_i) = (x^d - \beta_i) b_i)$, следовательно, $h$ является диагональным по отношению к базису $\{b_i\}$ и $\deg(x^d - \beta_i) = d$.
+
+\hl{(2) $\Leftarrow$ (1)}: Пусть $h$ \hl{диагонализируемый (diagonalisable)}. Тогда существует преобразование базиса $t \in \Aut(F)$ такое, что $t^{-1} \cdot h \cdot t$ является диагональным.
+
+$$
+\begin{CD}
+	 F 	@>h>> 			F 		@>\rho>>	E	@>>> 0\\
+	 @VVtV 				@VVtV			@VV\hat{t}V	\\
+	 F 	@>tht^{-1}>>	F		@>\rho>>	E	@>>> 0
+\end{CD}
+$$
+
+В общем случае невозможно \hl{расширить $t$ на $E$ (extend t to E)} как $A$-гомоморфизм, потому что $t(\ker(\rho)) \not \subset \ker(\rho)$. Но достаточно рассматривать как (свободный) $R$-модуль. Тогда существует $\hat{t} \in \Aut_R (E)$, где $\rho t = \hat{t} \rho$. Начиная с $h(b_i) = \alpha b_i - \sum_j \beta_{ij} \cdot b_j$, мы получаем $(tht^{-1})(tb_i) = \alpha (tb_i) - \sum_j \beta_{ij} \cdot (tb_j) = \gamma_i \cdot (tb_i)$, поскольку $h$ \hl{диагонализируемый (diagonalisable)}. $\deg(\gamma_i) < d$. С учётом $\hatei{i}^0 : = \rho (t b_i)$, мы получаем $\gamma_i (e_i^0) = \gamma_i \rho (t b_i) = \rho \gamma_i (t b_i) = \rho (tht^{-1}) (t b_i) = \hat{t} (\rho h) t^-1 (t b_i) = 0$, так как $\rho h = 0$.
+
+(2)$\Leftrightarrow$(3): Этот факт непосредственно следует из эквивалентности (1) и (2) и из определения $f_\alpha$. $\Box$
+
+\paragraph{Нотация}
+$E' := F/M^{z-1}F, R' := R[x]/ (Ann(E) + M^{z-1})$.
+
+\paragraph{Теорема 6.4}
+Пусть $(R, M)$ --- локальное артиново кольцо главных идеалов, $M = (m)$, $z$ --- \hl{нильпотентность (nilpotency)} $M$ и $E \in Mod_n (R[x])$. Тогда существуют изоморфизмы
+\begin{itemize}
+	\item[(а)] $\phi: \Hom_R(F, MF) \rightarrow \Endom_{R'}(E')$;
+	\item[(б)] $\psi: \Aut_R (F)/(1+\Hom(F, M^{z-1}F)) \rightarrow \Aut_{R'}(R')$;
+	\item[(в)] $\phi$ и $\psi$ \hl{коммутируют (commute)} с действием группы автоморфизмов на кольце эндоморфизмов, особенно, $$\bar{\phi} : \Hom_R(E, ME)/ \Aut_R(E) \cong \Endom_{R'}(E') / \Aut_{R'}(E').$$
+\end{itemize}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 \pagebreak
