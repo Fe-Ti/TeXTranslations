@@ -14,6 +14,7 @@
 \geometry{top=2cm}
 \geometry{bottom=2cm}
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \usepackage{titling}
 \usepackage{indentfirst}
 \setlength{\parindent}{1cm}
@@ -608,23 +609,53 @@ $E' := F/M^{z-1}F, R' := R[x]/ (Ann(E) + M^{z-1})$.
 \end{itemize}
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+\paragraph{Доказательство}
+Для данного доказательства пусть $H:= \Hom(F, M^{z-1} F)$
+
+(a) Пусть $m : = F \rightarrow (m)E$ (умножение на $m$). Тогда $\ker (m) = M^{z-1}$ и $\bar{m} : E' \cong (m)E$. Аналогично мы можем связать $f : E\rightarrow(m)E$ с $\bar{f} : E' \rightarrow (m)E$ и, таким образом, определить $f' := \phi(f) := \bar{m}^{-1} \cdot \bar{f} \in \Endom(E')$, где $f'\pi = \pi f$.
+
+$\phi$ --- мономорфизм, потому что $\ker(\phi) = \{f \in \Hom(E, ME) | \bar{f} = 0\} = 0$.
+
+$\phi$ --- эпиморфизм: Пусть $f' \in \Endom(E')$ будет произвольным:
+$$
+\begin{tikzcd}
+	E	\ar{d}[']{\pi} \arrow{r}{mf}	& (m)E \\
+	E' 	\rar{f'}							& E' \ar{u}{\cong}[']{\bar{m}}
+\end{tikzcd}
+$$
+
+Поскольку $E$ является свободным, $f'$ может быть \hl{поднят по $\pi$ (be lifted along $\pi$)} для получения $mf \in \Endom(E)$. $\phi^{-1}(f') := mf$ подразумевает $\phi(mf) = \bar{m}^{-1} \cdot (mf) = \pi \bar{f} = f'$.
+
+(б) Определим $\psi' : \Aut(E) \rightarrow \Aut(E')$ с помощью $\psi (g) := g'$, где $\pi g = g' \pi$ для $g \in \Aut(E)$. $\psi'$ корректно определено и является эпиморфизмом (как в асти (а)). \hl{Прим.: в начале абзаца вероятно опечатка во второй формуле.} 
+
+$$
+\begin{tikzcd}
+	E	\ar{d}[']{\pi} \arrow{r}{g}	& E \ar{d}{\pi} \\
+	E' 	\rar{g'}			& E'
+\end{tikzcd}
+$$
+
+$\psi' (g) = 1_E  \Leftrightarrow \pi = \pi g \Leftrightarrow 1_E - g \in \ker(\pi) \Leftrightarrow 1_E - g \in H$. Следовательно, $\ker(\psi') = 1 + H$ и $\psi$ является мономорфизмом.
+
+
+$$
+\begin{tikzcd}
+	\Aut(E) \ar{d} \ar{rd}{\alpha} & \\
+	\Aut(E) / (1+H) \rar{\alpha} \dar{\cong}[']{\psi}& \Endom(\Hom(E,ME)) \dar{\cong}[']{\phi^*} \\
+	\Aut(E') \rar{\alpha}&  \Endom(\Endom(E'))
+\end{tikzcd}
+$$
+
+(в) $\alpha$ --- это действие $g \in \Aut(E)$ на $f \in \Endom(E), ~ \alpha (g) f : = g^{-1} f g \in \Endom(E)$. Пусть $\bar{g} \in \Aut(E)/(1+H)$ и $mf \in \Hom(E, ME)$. Тогда $\phi^* \alpha (\bar{g})(mf) = \phi^*(\bar{g}^{-1}mf\bar{g}) = (\bar{g}^{-1} f \bar{g})'$ и $\alpha \psi (\bar{g})(f') = (\bar{g}')^{-1} f' \bar{g}'$. Из-за линейности $f, g$ и $\pi$ получаем $(\bar{g}^{-1} f \bar{g})' = (\bar{g}')^{-1}f'\bar{g}'$. $\Box$
+
+
+\paragraph{Теорема 6.5}
+{\itshape
+Пусть $(R,M )$ --- артиново локальное кольцо главных идеалов, а $E \in Mod_n(R[x])$ \hl{является полным степени $d$ (full of degree d)}. $E$ не скручен тогда и только тогда, когда $f' := \phi (f) \in \Endom_{R'}(E')$ \hl{диагонализируемый (diagonalisable)}.
+}
+
+\paragraph{Доказательство}
+Согласно теореме 6.3, нам необходимо показать, что $\phi: \Hom(F,MF) \rightarrow \Endom(E')$ "<сохраняет диагональность">. Пусть $B:=\{b_1, ..., b_k\}$ --- базис в $F$, $\pi : F \rightarrow E' = F/M^{z-1}F$ --- \hl{канониеское отображение (canonical projection)} и $\pi(B)$ --- базис в $E'$.
 
 
 \pagebreak
