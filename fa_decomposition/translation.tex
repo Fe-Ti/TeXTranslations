@@ -657,6 +657,14 @@ $$
 \paragraph{Доказательство}
 Согласно теореме 6.3, нам необходимо показать, что $\phi: \Hom(F,MF) \rightarrow \Endom(E')$ "<сохраняет диагональность">. Пусть $B:=\{b_1, ..., b_k\}$ --- базис в $F$, $\pi : F \rightarrow E' = F/M^{z-1}F$ --- \hl{канониеское отображение (canonical projection)} и $\pi(B)$ --- базис в $E'$.
 
+$$
+\begin{tikzcd}
+	A \dar[']{\pi} & F \dar[']{\pi} \rar{f_\alpha} & MF \\
+	R' & E' \rar{f'} & E' \uar{\cong}[']{m}
+\end{tikzcd}
+$$
+
+Теорема непосредственно следует из того факта, то $\pi$ и $m$ являются диагональными по отношению к $B$. $\Box$
 
 \pagebreak
 \begin{thebibliography}{99}
